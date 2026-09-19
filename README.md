@@ -55,6 +55,15 @@ node -e "require('bcrypt').hash('YourChosenPassword', 10).then(console.log)"
 UPDATE users SET password_hash = '<hash from above>' WHERE email = 'admin@example.com';
 ```
 
+> **Deploying to a managed MySQL host** (Clever Cloud, PlanetScale, Railway,
+> RDS, etc.)? Use `database/schema.cloud.sql` instead — it skips the
+> `CREATE DATABASE`/`USE` statements, since managed hosts give you one
+> pre-provisioned database and usually don't grant `CREATE DATABASE`:
+>
+> ```bash
+> mysql -h <host> -P <port> -u <user> -p<password> <database> < database/schema.cloud.sql
+> ```
+
 ## 2. Smart contract (`blockchain/`)
 
 ```bash
