@@ -1,0 +1,39 @@
+# ============================================================
+# Root .gitignore — Blockchain QR Product Authentication System
+# ============================================================
+
+# Environment variables (NEVER commit secrets/private keys)
+.env
+.env.local
+**/.env
+!**/.env.example
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Hardhat
+blockchain/cache/
+blockchain/artifacts/
+blockchain/typechain/
+blockchain/typechain-types/
+
+# Build outputs
+frontend/dist/
+frontend/build/
+backend/dist/
+
+# Logs
+*.log
+logs/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Generated QR codes (contain no secrets, but are runtime output, not source)
+backend/uploads/qrcodes/*
+!backend/uploads/qrcodes/.gitkeep
