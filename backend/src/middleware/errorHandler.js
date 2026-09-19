@@ -15,9 +15,9 @@ function errorHandler(err, req, res, next) {
     });
   }
 
-  if (process.env.NODE_ENV !== "production") {
-    console.error(err);
-  }
+  // Always log server-side so production errors are visible in host logs --
+  // only the client-facing message below is sanitized for 500s.
+  console.error(err);
 
   res.status(statusCode).json({
     success: false,
